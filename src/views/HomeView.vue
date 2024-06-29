@@ -24,7 +24,9 @@
       </div>
     </div>
     <div v-else>
-      <p>No se encontraron resultados...</p>
+      <div v-if="ingreso">
+        <p>No se encontraron resultados...</p>
+      </div>
     </div>
   </div>
 </template>
@@ -41,6 +43,7 @@ const songs = ref([])
 const router = useRouter()
 const letraAct = ref('')
 const artistaF = ref('')
+const ingreso = ref(false)
 
 const cargando = ref(false)
 let showModal = ref(false)
@@ -77,7 +80,12 @@ const Letra = async (song) => {
 
 
 const Buscar = () => {
-  cargarCanciones()
+  ingreso.value = true
+  if(inputSearch.value != ''){
+    cargarCanciones()
+  }else{
+    ingreso.value = false
+  }
 }
 </script>
 
