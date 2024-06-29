@@ -19,7 +19,7 @@
         </div>
         <InfoModal v-if="showModal" :visible="showModal" :letra="letraAct" @update:visible="showModal = $event" />
       </div>
-      <div v-else>
+      <div v-else> 
         <img src="@/assets/Loading_icon.gif" alt="Cargando...">
       </div>
     </div>
